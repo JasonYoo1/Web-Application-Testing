@@ -38,7 +38,7 @@ class App extends React.Component{
         <div className="strikeButtons">
           <button onClick={() =>{
             var strikes = this.state.strike 
-            if(strikes === 3){
+            if(strikes >= 2){
               this.setState({strike:0})
             } else {
               this.setState({strike: this.state.strike+ 1})
@@ -78,7 +78,19 @@ class App extends React.Component{
             }>Foul</button>
         </div>
 
-
+        {/*HIT ON CLICK */}
+        <div className="hitButton">
+          <button onClick={() => {
+            var hit = this.state
+            if(hit >= 1){
+              this.setState( this.state)
+            } else {
+              
+            }
+            console.log("this is a hit"); 
+          } 
+            }>Hit</button>
+        </div>
 
       </section>
     </div>
