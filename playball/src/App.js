@@ -2,25 +2,44 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+class App extends React.Component{
+  constructor() {
+    super();
+    this.state = {
+      strike: 0,
+      Ball: 0
+    };
+  }
+
+
+  
+  render(){
+    return(
+      <div className="App">
+      <section className="tracker">
+        <div className="topRow">
+          <div className="strikeBox">
+            <h2 className="strike">Strike</h2>
+            <div className="strikeCounter">{this.state.strike}</div>
+          </div>
+          <div className="BallBox">
+            <h2 className="Ball">Ball</h2>
+            <div className="ballCounter">{this.state.Ball}</div>
+          </div>
+        </div>
+      </section>
+      <section className="buttons">
+        <div className="strikeButtons">
+          <button onClick={() =>{console.log(this.state.strike +1); this.setState({strike: this.state.strike+ 1})} } >Strike</button>
+        </div>
+        <div className="ballButtons">
+          <button onClick={() => {console.log("this is ball", this.state.ball + 1); this.setState({Ball: this.state.Ball + 1})} }>Ball</button>
+        </div>
+      </section>
     </div>
-  );
+    )
+  }
 }
 
 export default App;
