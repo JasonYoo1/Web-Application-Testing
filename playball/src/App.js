@@ -81,13 +81,7 @@ class App extends React.Component{
         {/*HIT ON CLICK */}
         <div className="hitButton">
           <button onClick={() => {
-            var hit = this.state
-            if(hit >= 1){
-              this.setState( this.state)
-            } else {
-              
-            }
-            console.log("this is a hit"); 
+            this.setState({strike: this.state.strike=0, ball: this.state.ball=0 })
           } 
             }>Hit</button>
         </div>
