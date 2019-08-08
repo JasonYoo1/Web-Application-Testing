@@ -8,7 +8,8 @@ class App extends React.Component{
     super();
     this.state = {
       strike: 0,
-      Ball: 0
+      ball: 0,
+      foul: 0
     };
   }
 
@@ -25,35 +26,60 @@ class App extends React.Component{
           </div>
           <div className="BallBox">
             <h2 className="Ball">Ball</h2>
-            <div className="ballCounter">{this.state.Ball}</div>
+            <div className="ballCounter">{this.state.ball}</div>
           </div>
         </div>
       </section>
+
+
       <section className="buttons">
+
+        {/*STRIKE ON CLICK FUNCTION*/}
         <div className="strikeButtons">
           <button onClick={() =>{
-            console.log("this is strike", this.state.strike +1); 
-            let strikes = this.state.strike 
+            var strikes = this.state.strike 
             if(strikes === 3){
               this.setState({strike:0})
             } else {
               this.setState({strike: this.state.strike+ 1})
             }
-            } 
+            console.log("this is strike", this.state.strike +1); 
+          } 
           } >Strike</button>
         </div>
+
+
+
+        {/*BALL ON CLICK FUNCTION*/}
         <div className="ballButtons">
           <button onClick={() => {
-            console.log("this is ball", this.state.Ball + 1); 
-            let balls = this.state.Ball
+            var balls = this.state.ball
             if(balls === 4){
-              this.setState({Ball:0})
+              this.setState({ball:0})
             } else {
-              this.setState({Ball: this.state.Ball+ 1})
+              this.setState({ball: this.state.ball+ 1})
             }
+            console.log("this is ball", this.state.ball + 1); 
           } 
             }>Ball</button>
         </div>
+
+        {/*FOUL ON CLICK FUNCTION*/}
+        <div className="foulButtons">
+          <button onClick={() => {
+            var strikes = this.state.strike
+            if(strikes >= 2){
+              this.setState({strike: 2})
+            } else {
+              this.setState({strike: this.state.strike+1})
+            }
+            console.log("this is foul"); 
+          } 
+            }>Foul</button>
+        </div>
+
+
+
       </section>
     </div>
     )
