@@ -31,10 +31,28 @@ class App extends React.Component{
       </section>
       <section className="buttons">
         <div className="strikeButtons">
-          <button onClick={() =>{console.log(this.state.strike +1); this.setState({strike: this.state.strike+ 1})} } >Strike</button>
+          <button onClick={() =>{
+            console.log("this is strike", this.state.strike +1); 
+            let strikes = this.state.strike 
+            if(strikes === 3){
+              this.setState({strike:0})
+            } else {
+              this.setState({strike: this.state.strike+ 1})
+            }
+            } 
+          } >Strike</button>
         </div>
         <div className="ballButtons">
-          <button onClick={() => {console.log("this is ball", this.state.ball + 1); this.setState({Ball: this.state.Ball + 1})} }>Ball</button>
+          <button onClick={() => {
+            console.log("this is ball", this.state.Ball + 1); 
+            let balls = this.state.Ball
+            if(balls === 4){
+              this.setState({Ball:0})
+            } else {
+              this.setState({Ball: this.state.Ball+ 1})
+            }
+          } 
+            }>Ball</button>
         </div>
       </section>
     </div>
