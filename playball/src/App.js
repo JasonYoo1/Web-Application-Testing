@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Player from './component/Player'
 
 class App extends React.Component{
   constructor() {
@@ -9,7 +9,8 @@ class App extends React.Component{
     this.state = {
       strike: 0,
       ball: 0,
-      foul: 0
+      foul: 0,
+      hit: []
     };
   }
 
@@ -28,6 +29,10 @@ class App extends React.Component{
             <h2 className="Ball">Ball</h2>
             <div className="ballCounter">{this.state.ball}</div>
           </div>
+          {/* <div className="hitBox">
+            <h2 className="Hit">Hits</h2>
+            <div className="ballCounter">{this.state.hit}</div>
+          </div> */}
         </div>
       </section>
 
@@ -52,7 +57,7 @@ class App extends React.Component{
 
         {/*BALL ON CLICK FUNCTION*/}
         <div className="ballButtons">
-          <button onClick={() => {
+          <button data-testid='ballbtntest' onClick={() => {
             var balls = this.state.ball
             if(balls === 4){
               this.setState({ball:0})
@@ -85,7 +90,7 @@ class App extends React.Component{
           } 
             }>Hit</button>
         </div>
-
+              <Player props={this.state}/>
       </section>
     </div>
     )
